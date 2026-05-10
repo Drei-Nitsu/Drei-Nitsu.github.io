@@ -1,33 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ── Typing animation ──────────────────────────────
-    const roles = [
-        'BS Information Technology · De La Salle Lipa',
-        '3rd Year IT Student',
-        'Tech Enthusiast',
-    ];
-    let roleIndex = 0, charIndex = 0, isDeleting = false;
-    const typedEl = document.getElementById('typed-text');
-
-    function typeEffect() {
-        if (!typedEl) return;
-        const current = roles[roleIndex];
-        typedEl.textContent = isDeleting
-            ? current.slice(0, --charIndex)
-            : current.slice(0, ++charIndex);
-
-        let delay = isDeleting ? 40 : 80;
-        if (!isDeleting && charIndex === current.length) {
-            delay = 2000; isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            delay = 400;
-        }
-        setTimeout(typeEffect, delay);
-    }
-    typeEffect();
-
     // ── Scroll-reveal animations ──────────────────────
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
